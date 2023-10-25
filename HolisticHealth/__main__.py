@@ -1,5 +1,4 @@
 import logging
-from typing import Dict
 
 import sentry_sdk
 import uvicorn
@@ -13,18 +12,25 @@ from sentry_sdk.integrations.logging import (
 )
 
 import HolisticHealth
+from HolisticHealth.api import api_router
 from HolisticHealth.config import settings
 from HolisticHealth.logger import LOG_LEVEL
 
 # Create App Instance
 logger.info(f"Starting Holistic Health API: {HolisticHealth.__version__}")
-app = FastAPI()
+app = FastAPI(
+    title="Holistic Health API",
+    summary="Supervised Diagnostic Inference Engine",
+    version=HolisticHealth.__version__,
+    license_info={
+        "name": "GNU AFFERO GENERAL PUBLIC LICENSE",
+        "identifier": "AGPL-3.0",
+    },
+    docs_url="/",
+    redoc_url=None,
+)
 
-
-@app.get("/")
-def index() -> Dict[str, str]:
-    return {"Production": str(settings.production)}
-
+app.include_router(router=api_router)
 
 # Logging Config
 UVICORN_LOGGING_CONFIG = {
@@ -101,6 +107,7 @@ if __name__ == "__main__":
             "api_secret",
             "database_uri",
             "sentry_dsn",
+            "openai_key",
             is_type_of=str,
             required=True,
             env="default",

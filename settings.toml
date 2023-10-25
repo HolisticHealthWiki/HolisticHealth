@@ -12,3 +12,4 @@ access_logs = false
 api_secret = "348763tgibd9oeuh349hndjidvbsv"
 database_uri = "abc"
 sentry_dsn = "abc"
+openai_key = "865tiygf89tyf078f9f"
