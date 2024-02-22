@@ -1,0 +1,15 @@
+[paths]
+source = HolisticHealth
+
+[run]
+branch = true
+source =
+    HolisticHealth
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
+exclude_lines =
+    pragma: no cover

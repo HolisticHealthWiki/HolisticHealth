@@ -1,0 +1,14 @@
+[default]
+production = false
+log_level = "debug"
+access_logs = true
+
+[testing]
+production = true
+log_level = "debug"
+access_logs = false
+
+# Config for .secrets.toml file
+api_secret = "348763tgibd9oeuh349hndjidvbsv"
+database_uri = "abc"
+sentry_dsn = "abc"
