@@ -1,0 +1,18 @@
+[project]
+name = "HolisticHealth"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Vivek Joshy", email = "8206808+vivekjoshy@users.noreply.github.com"},
+]
+dependencies = [
+    "fastapi~=0.109.2",
+    "sqlmodel~=0.0.16",
+]
+requires-python = "==3.12.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
